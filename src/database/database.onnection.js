@@ -4,7 +4,7 @@ import 'dotenv/config'
 
 export const connection = mongoose
   .connect(
-    process.env.DEV_CONNECTION_STRING || process.env.PROD_CONNECTION_STRING
+    process.env.DEV_CONNECTION_STRING || process.env.PRODUCTION_CONNECTION_STRING
   )
   .then(() => {
     console.log("Connected to MongoDB");
