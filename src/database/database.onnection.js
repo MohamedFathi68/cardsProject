@@ -1,9 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
+import 'dotenv/config'
+
 
 export const connection = mongoose
   .connect(
-    // "mongodb+srv://mohamedfathi68:POFk6zOhciyHUz5d@cluster0.uhqg8fv.mongodb.net/cardsProject"
-    "mongodb://localhost:27017/cardsProject"
+    process.env.DEV_CONNECTION_STRING || process.env.PROD_CONNECTION_STRING
   )
   .then(() => {
     console.log("Connected to MongoDB");

@@ -2,9 +2,10 @@ import express from "express";
 import cors from "cors";
 import { connection } from "./src/database/database.onnection.js";
 import bootstrap from "./src/module/bootstrap.js";
+import 'dotenv/config'
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
