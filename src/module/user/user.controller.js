@@ -5,6 +5,11 @@ let getAllUsers = async (req, res) => {
   res.status(200).json({message:"Succcess", users})
 };
 
+let getUsersByName = async (req, res) => {
+  let users = await userModel.find({ name: RegExp(req.params.search, "i") });
+  res.status(200).json({ message: "Success", users });
+};
+
 let addUser= async (req, res) => {
   let user = await userModel.insertMany(req.body);
   res.status(201).json({ message: "User Created", user });
@@ -15,4 +20,4 @@ let deleteUser = async (req, res) => {
   res.status(200).json({ message: "User Deleted", user });
 };
 
-export { getAllUsers, addUser ,deleteUser};
+export { getAllUsers,getUsersByName, addUser ,deleteUser};
