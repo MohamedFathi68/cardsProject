@@ -7,14 +7,11 @@ const userSchema = new Schema({
   },
   members:  Number,
   amount: Number,
-  marked: [{
-    type: Boolean,
-    default: false,
-  }],
   trader: {
     type: Types.ObjectId,
     ref: 'Trader'
-  }
+  },
+  responsiblePerson: String
 },{versionKey: false, timestamps: true});
 
 export const userModel = model("User", userSchema);

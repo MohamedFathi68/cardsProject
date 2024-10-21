@@ -4,11 +4,7 @@ const traderSchema = new Schema({
   name: {
     type: String,
     required: true,
-  },
-  users: [{
-    type: Types.ObjectId,
-    ref: 'User'
-  }],
-},{versionKey: false});
+  }
+},{versionKey: false , timestamps: false});
 
-export const userModel = model("Trader", traderSchema);
+export const traderModel = model("Trader", traderSchema);
