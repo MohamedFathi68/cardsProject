@@ -10,4 +10,9 @@ let addUser= async (req, res) => {
   res.status(201).json({ message: "User Created", user });
 };
 
-export { getAllUsers, addUser};
+let deleteUser = async (req, res) => {
+  let user = await userModel.findByIdAndDelete(req.params.id);
+  res.status(200).json({ message: "User Deleted", user });
+};
+
+export { getAllUsers, addUser ,deleteUser};
