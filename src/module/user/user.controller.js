@@ -7,7 +7,12 @@ let getAllUsers = async (req, res) => {
 
 let getUsersByName = async (req, res) => {
   let users = await userModel
-    .find({ name: RegExp(req.params.search, "i") })
+    .find({
+      $or: [
+        { name: RegExp(req.params.search, "i") },
+        { responsibleName: RegExp(req.params.search, "i") }
+      ]
+    })
     .populate("trader", "-_id -users ");
   res.status(200).json({ message: "Success", users });
 };
