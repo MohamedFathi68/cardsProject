@@ -28,6 +28,11 @@ let addUser = async (req, res) => {
   res.status(201).json({ message: "User Created", user });
 };
 
+let updateUser = async (req, res) => {
+  let user = await userModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  res.status(200).json({ message: "User Updated", user });
+};
+
 let deleteUser = async (req, res) => {
   let user = await userModel.findByIdAndDelete(req.params.id);
   res.status(200).json({ message: "User Deleted", user });
@@ -38,5 +43,6 @@ export {
   getUsersByName,
   getUserByResponsibleName,
   addUser,
+  updateUser,
   deleteUser,
 };
