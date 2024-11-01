@@ -14,7 +14,7 @@ let getUsersByName = async (req, res) => {
 
 let getUserByResponsibleName = async (req, res) => {
   let user = await userModel.find({
-    responsibleName: RegExp(req.query.searchRes, "i")
+    responsibleName: RegExp(req.params.searchRes, "i")
   });
   res.status(200).json({ message: "Success", user });
 };
